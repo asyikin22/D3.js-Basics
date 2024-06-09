@@ -1,7 +1,7 @@
 # Linear Scale
 
 **SOURCE**:
-* Observable lecture: https://observablehq.com/d/f27d2a7ac3bba237
+* Observable lecture: https://youtu.be/Crp8UX-eQB0?list=PLOHIJAFwtkEcK_mLLScnX2B-yHDjzSxuR
 * Additional reference: https://medium.com/@john.goodman/getting-started-with-d3-js-6de226320878
 
 ---------------------
