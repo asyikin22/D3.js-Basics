@@ -1,5 +1,4 @@
-
-
+//Linear scale (without data set)
 const myLinearScale = d3.scaleLinear()
   .domain([0, 1])
   .range([0, 100])
@@ -8,6 +7,16 @@ const myLinearScale = d3.scaleLinear()
   console.log(myLinearScale(0));
   console.log(myLinearScale(0.5));
   console.log(myLinearScale(50));
+
+
+//Ordinal scale (without data set)
+const myFruit = d3.scaleOrdinal()
+  .domain(["strawberry", "durian", "lemon"])
+  .range(["red", "green", "yellow"]);
+
+  console.log(myFruit("durian"))
+  console.log(myFruit("strawberry"))
+  console.log(myFruit("lemon"))
 
 //read data from csv
 d3.csv("data/Scatterplot.csv")
@@ -69,8 +78,31 @@ d3.csv("data/Scatterplot.csv").then(function(data) {
       console.log(linearScale)
   })
 
+//Ordinal scales (with data set)
+//We need to filter the data - extract species name and removes duplicates
+//this will result in an array of unique species name
+d3.csv("data/Scatterplot.csv").then(function(data) {
+  const mySpecies = data.map(data => data.species)
 
-//Ordinal scales
+  console.log(mySpecies)
+
+  const newAray = Array.from(new Set(data.map((data) => data.species)))
+
+  console.log(newAray)
+
+  //How to use scale
+    const myFlower = d3.scaleOrdinal()
+      .domain(newAray)
+      .range(["blue", "violet", "pink"])
+
+      // setosa, versicolor, virginica
+
+
+      console.log(myFlower("setosa"))
+      console.log(myFlower("versicolor"))
+      console.log(myFlower("virginica"))
+})
+  
 
 
 
