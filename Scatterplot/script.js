@@ -98,9 +98,8 @@ d3.csv("data/Scatterplot.csv").then(function(data) {
       console.log(myFlower("setosa"))
       console.log(myFlower("versicolor"))
       console.log(myFlower("virginica"))
-})
-  
-// Create an SVG
+
+      // Create an SVG
 // Set width, height, margin and container to put the margin in
 
 {
@@ -121,10 +120,37 @@ d3.csv("data/Scatterplot.csv").then(function(data) {
     .append("g")
     .attr("transform", `translate(${margin.left}, ${margin.top})`)
 
-    g.append("rect").attr("width", width).attr("height", height)
+    // g.append("rect").attr("width", width).attr("height", height)
+
+    const x = d3
+      .scaleLinear()
+      .domain(d3.extent(data, (d) => d["sepalLength"]))
+      .range([0, width])
+
+    const y = d3
+      .scaleLinear()
+      .domain(d3.extent(data, (d) => d["sepalWidth"]))
+      .range([height, 0])
+
+    const myFlower = d3
+      .scaleOrdinal()
+      .domain(newAray)
+      .range(["blue", "violet", "pink"])
+
+    g.append("g")
+    .selectAll("circle")
+    .data(data)
+    .join("circle")
+    .attr("r", 5)
+    .attr("cx", (data) => x(data.sepalLength))
+    .attr("cy", (data) => y(data.sepalWidth))
+    .style("fill", (data) => myFlower(data.species))
 
   document.body.append(svg.node()) 
 }
+})
+  
+
 
 
 
