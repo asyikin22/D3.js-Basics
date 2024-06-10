@@ -93,16 +93,40 @@ d3.csv("data/Scatterplot.csv").then(function(data) {
   //How to use scale
     const myFlower = d3.scaleOrdinal()
       .domain(newAray)
-      .range(["blue", "violet", "pink"])
-
-      // setosa, versicolor, virginica
-
+      .range(["blue", "violet", "pink"]) // setosa, versicolor, virginica
 
       console.log(myFlower("setosa"))
       console.log(myFlower("versicolor"))
       console.log(myFlower("virginica"))
 })
   
+// Create an SVG
+// Set width, height, margin and container to put the margin in
+
+{
+  const width = 600;
+  const height = 400;
+  const margin = { top: 20, bottom: 20, left: 20, right:20 }
+
+  const svg = d3
+    .create("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .style("border", "5px dotted #FF0000")
+
+  //container (akin to <div> in HTML)
+  //We use 'transform' to move svg to right and then down to center it
+
+  const g = svg 
+    .append("g")
+    .attr("transform", `translate(${margin.left}, ${margin.top})`)
+
+    g.append("rect").attr("width", width).attr("height", height)
+
+  document.body.append(svg.node()) 
+}
+
+
 
 
 
