@@ -111,7 +111,7 @@
 **ERROR-SOLUTION**
 ---------------------
 - I had problem executing the codes
-- So I changed the way I calculate the extent values.
+- So I changed the way I calculate the extent values when setting up X and Y scales
 - Instead of passing 'extentValues' in the left, I use the one on the right
 - The extentValues only calculate for length, not width. And also it doesn’t specify what kind of property (width/length) I want. so it doesnt make sense to use that. idk why i passed it in the first place lol 🤡
 - The codes run after I debug it this way 🎉
@@ -119,7 +119,7 @@
 ![image](https://github.com/asyikin22/D3.js-Basics/assets/148519441/6c3a51a0-0f10-465f-9083-45e79415f6dd)
 
 
-![image](https://github.com/asyikin22/D3.js-Basics/assets/148519441/d37cf34e-bf83-4fe0-a754-96e35645f984)
+![image](https://github.com/asyikin22/D3.js-Basics/assets/148519441/e50f53a3-7434-40d7-9b7b-29f0007800b2)
 
 
 
